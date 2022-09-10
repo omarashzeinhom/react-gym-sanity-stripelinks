@@ -13,7 +13,7 @@ const CTA = () => {
   return (
     <>
       <MDBContainer fluid className="bg-info text-center py-2">
-        <MDBBtnGroup className="w-100 " class="app__btns-Cta">
+        <MDBBtnGroup className="z-index bg-info w-100 rounded-5 shadow-5-strong">
         <MDBRipple fluid className="w-100" rippleColor="light">
           <MDBRow>
             <MDBCol size="6">
