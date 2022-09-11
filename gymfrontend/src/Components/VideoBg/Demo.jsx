@@ -44,23 +44,3 @@ export default VideoBg;
 
 
 
-/**
- * JavaScript References 
- * 
- * hooks-state-ReactJS - Docs From 
- * https://reactjs.org/docs/hooks-state.html
- * hooks-useEffect()-ReactJS - Docs From 
- * https://reactjs.org/docs/hooks-effect.html
- * hooks-Reference-ReactJS - Docs From 
- * https://reactjs.org/docs/hooks-reference.html
- * Components and Props -ReactJS - Docs From 
- * https://reactjs.org/docs/components-and-props.html
- * 
- * https://blog.logrocket.com/solve-react-useeffect-hook-infinite-loop-patterns/
- * 
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
- * 
- * 
- * Assets (Videos, Images , Converters)
- * 
- */
