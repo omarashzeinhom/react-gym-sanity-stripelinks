@@ -49,7 +49,9 @@ const Nav = () => {
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
+      
     </MDBNavbar>
+    
   );
 };
 

@@ -32,9 +32,21 @@ const VideoBg = () => {
             >
               <source src={video.homevideo} type="video/webm" />
             </video>
-
+            {/* Hover Jumbo Tron */}
+            <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}>
+          <div className='d-flex justify-content-center align-items-center h-100'>
+            <div className='text-white'>
+              <h1 className='mb-3'>Welcome to Jims Gym</h1>
+              <h4 className='mb-3'>New Offers</h4>
+              <a className='btn btn-outline-info btn-lg' href='MemberShip' role='button'>
+                MemberShip
+              </a>
+            </div>
+          </div>
+        </div>
           </div>
         ))}
+
       </MDBRipple>
     </MDBContainer>
   );
@@ -42,5 +54,34 @@ const VideoBg = () => {
 
 export default VideoBg;
 
+/**
+ * JavaScript References 
+ * 
+ * hooks-state-ReactJS - Docs From 
+ * https://reactjs.org/docs/hooks-state.html
+ * hooks-useEffect()-ReactJS - Docs From 
+ * https://reactjs.org/docs/hooks-effect.html
+ * hooks-Reference-ReactJS - Docs From 
+ * https://reactjs.org/docs/hooks-reference.html
+ * Components and Props -ReactJS - Docs From 
+ * https://reactjs.org/docs/components-and-props.html
+ * 
+ * https://blog.logrocket.com/solve-react-useeffect-hook-infinite-loop-patterns/
+ * 
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+ * 
+ * 
+ * Assets (Videos, Images , Converters)
+ * 
+ */
 
 
+
+//REFERENCES
+/***
+ *
+ * 1. [MDB-Colors](https://mdbootstrap.com/docs/react/content-styles/colors/)
+ * 2. [Pankaj, 2022] (https://www.digitalocean.com/community/tutorials/java-remove-character-string )
+ * 3. [MDB - NavBar](https://mdbootstrap.com/docs/react/navigation/navbar/)
+ * 4. [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+ */

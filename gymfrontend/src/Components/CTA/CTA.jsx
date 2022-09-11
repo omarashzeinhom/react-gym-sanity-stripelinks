@@ -62,6 +62,7 @@ const CTA = () => {
                 </MDBBtn>
               </MDBCol>
             </MDBRow>
+         
           </MDBRipple>
         </MDBBtnGroup>
       </MDBContainer>

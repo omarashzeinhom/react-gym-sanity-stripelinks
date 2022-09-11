@@ -5,9 +5,19 @@ const home = {
 
     fields: [
         {
-            name: "homevideo",
+            name: "homevideo",// your key id
             title: "VideoBg Link",
             type: "url",
+        },
+        {
+            name: "title",// your key id
+            title: "JumboTron Title",
+            type: "string",
+        },
+        {
+            name: "description",// your key id
+            title: "Description",
+            type: "string",
         },
     ]
 }

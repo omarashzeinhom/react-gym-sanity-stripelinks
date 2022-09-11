@@ -1,38 +1,57 @@
+import React from "react";
 import { MDBContainer, MDBRipple } from "mdb-react-ui-kit";
 import { useEffect, useState } from "react";
 import "./VideoBg.scss";
-
 import { client } from "../../client";
 
 const VideoBg = () => {
   const [videoBg, setVideoBg] = useState([]);
-  //ADD DYNAMIC VID SRC
+
   useEffect(() => {
     const query = '*[_type == "home"]';
-    // thats why we use this .then here to catch the promise
-    //passing in the data mapped parameter to setAboutCards
-    client.fetch(query).then((data) => setVideoBg(data)); //returns a promise
-  }, []);
-  //MAKE SURE TO ADD EMPTY ARRAY TO AVOID INFINITE LOOP;
+
+    client.fetch(query).then((data) => setVideoBg(data));
+  }, []); //empty dependency Arrray to Avoid Infinite Loop Error
 
   return (
     <MDBContainer fluid className="shadow-5-strong bg-info py-2">
-      <MDBRipple className='w-100 bg-image hover-overlay shadow-1-strong rounded '
-        rippleTag='div'
-      rippleColor='light'>
+      <MDBRipple
+        className="w-100 bg-image hover-overlay shadow-1-strong rounded "
+        rippleTag="div"
+        rippleColor="light"
+      >
+        {/**  Mapping Over the VideBG */}
+
         {videoBg.map((video, index) => (
-          <div key={index} className="w-100">
+          <div className="w-100" key={video + index}>
             <video
+              className="app__video-Bg"
               playsInline={true}
               controls={false}
               autoPlay={true}
               loop={true}
-              className="app__video-Bg"
               loading="lazy"
             >
               <source src={video.homevideo} type="video/webm" />
             </video>
-
+            <div
+              className="mask"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
+            >
+              <div className="d-flex justify-content-center align-items-center h-100">
+                <div className="text-white">
+                  <h1 className="mb-3">{video.title}</h1>
+                  <h4 className="mb-3">{video.description}</h4>
+                  <a
+                    className="btn btn-outline-info btn-lg"
+                    href="MemberShip"
+                    role="button"
+                  >
+                    MemberShip
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </MDBRipple>
@@ -41,26 +60,3 @@ const VideoBg = () => {
 };
 
 export default VideoBg;
-
-
-
-/**
- * JavaScript References 
- * 
- * hooks-state-ReactJS - Docs From 
- * https://reactjs.org/docs/hooks-state.html
- * hooks-useEffect()-ReactJS - Docs From 
- * https://reactjs.org/docs/hooks-effect.html
- * hooks-Reference-ReactJS - Docs From 
- * https://reactjs.org/docs/hooks-reference.html
- * Components and Props -ReactJS - Docs From 
- * https://reactjs.org/docs/components-and-props.html
- * 
- * https://blog.logrocket.com/solve-react-useeffect-hook-infinite-loop-patterns/
- * 
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
- * 
- * 
- * Assets (Videos, Images , Converters)
- * 
- */
