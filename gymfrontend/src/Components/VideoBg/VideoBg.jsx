@@ -31,14 +31,14 @@ const VideoBg = () => {
               className="app__video-Bg"
               loading="lazy"
             >
-              <source src={video.homevideo} type="video/webm" />
+              <source src={video?.homevideo} type="video/webm" />
             </video>
             {/* Hover Jumbo Tron */}
             <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
             <div className='text-white'>
-              <h1 className='mb-3'>Welcome to Jims Gym</h1>
-              <h4 className='mb-3'>New Offers</h4>
+              <h1 className='mb-3'>{video?.title}</h1>
+              <h4 className='mb-3'>{video?.description}</h4>
               <a className='btn btn-outline-info btn-lg' href='MemberShip' role='button'>
                 MemberShip
               </a>

@@ -13,10 +13,9 @@ const CTA = () => {
     "https://res.cloudinary.com/du9aympvd/image/upload/v1662851528/code/js/gym%20fullstack%20company%20portfolio/CTA/mouse-1_qsp8pg.svg";
   return (
     <>
-      <MDBContainer fluid className="bg-dark text-center py-3 shadow-5-strong">
+      <MDBContainer fluid className="bg-dark text-center py-3 shadow-5-strong ">
         <MDBBtnGroup className="bg-dark w-100 rounded-5  hover-overlay">
           <MDBRipple
-            fluid
             className="w-100"
             rippleColor="light"
             rippleTag="div"

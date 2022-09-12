@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 //MDB Styles
-import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
+import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 //Sanity Client
 import { client, urlFor } from "../../client";
 import { useEffect, useState } from "react";
@@ -21,9 +21,8 @@ export default function AboutBrands() {
 
   return (
     <>
-      <MDBContainer fluid className="py-4 px-2 w-100 ">
         <h5 className="text-white text-center">
-          Br<span className="text-dark">ands</span>{" "}
+          Br<span className="text-info">ands</span>{" "}
         </h5>
         <MDBRow>
           <MDBCol size={12}>
@@ -42,16 +41,17 @@ export default function AboutBrands() {
               }}
               navigation={true}
               modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper py-4 px-2   rounded-1 w-100 shadow-5-strong bg-info "
+              className="mySwiper py-4 px-2   rounded-1 w-100  bg-info "
             >
               {brands.map((brand, index) => (
                 <SwiperSlide key={index + brand}>
                   <img
                     src={urlFor(brand.brandimg)}
+                    loading="lazy"
                     alt="swiperimage"
-                    height="150rem"
+                    height="75rem"
                     width="150rem"
-                    className="rounded-5 shadow-5-strong bg-primary"
+                    className="rounded-5 shadow-5-strong bg-dark"
                   />
                   <h5 className="text-white">
                     <em>{brand.brandtitle}</em>
@@ -61,7 +61,6 @@ export default function AboutBrands() {
             </Swiper>
           </MDBCol>
         </MDBRow>
-      </MDBContainer>
     </>
   );
 }

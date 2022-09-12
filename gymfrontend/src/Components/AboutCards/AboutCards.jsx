@@ -4,12 +4,11 @@ import {
   MDBCardImage,
   MDBRipple,
   MDBCardTitle,
-  MDBBtn,
   MDBCardBody,
   MDBCardText,
-  MDBContainer,
   MDBCol,
   MDBRow,
+  MDBContainer,
 } from "mdb-react-ui-kit";
 
 import { client, urlFor } from "../../client";
@@ -18,55 +17,38 @@ import { useEffect, useState } from "react";
 const AboutCards = () => {
   const [cards, setCards]= useState([]);
 
-
   useEffect(()=>{
     const query = '*[_type== "abouts"]';
-
     client.fetch(query).then((data) => setCards(data));
-  },[])
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
+  },[]);
 
   return (
-    <MDBContainer fluid className="bg-dark ">
-      <MDBRow>
+    <MDBContainer>
+<MDBRow>
         {cards.map((card,index)=> 
-        <MDBCol lg="3" sm="6" md="6" xl="3">
-        <MDBCard className="bg-info shadow-5-strong" key={card+index}>
+        <MDBCol  key={card+index}>
+        <MDBCard className="shadow-5-strong bg-info w-100 h-75" style={{ maxHeight: "50vh" }}  >
           <MDBRipple
             rippleColor="light"
             rippleTag="div"
             className="bg-image hover-overlay"
           >
             <MDBCardImage
-              src={urlFor(card.aboutimage)}
+              src={urlFor(card?.aboutimg)}
               fluid
               alt="..."
-              className=""
+              className="shadow-5-strong rounded w-100 h-100"
+              style={{ objectFit: "cover", maxHeight: "75rem" }}
             />
-            <a>
               <div
                 className="mask"
                 style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
               ></div>
-            </a>
           </MDBRipple>
           <MDBCardBody>
-            <MDBCardTitle className="text-white"> {card.title}</MDBCardTitle>
-            <MDBCardText className="text-white">
-             {card.description}
+            <MDBCardTitle className="text-dark"> {card?.title}</MDBCardTitle>
+            <MDBCardText className="text-dark">
+             {card?.description}
             </MDBCardText>
           </MDBCardBody>
         </MDBCard>
@@ -76,6 +58,7 @@ const AboutCards = () => {
         )}
       </MDBRow>
     </MDBContainer>
+      
   );
 };
 
