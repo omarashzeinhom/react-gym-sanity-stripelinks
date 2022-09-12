@@ -12,8 +12,33 @@ import {
   MDBRow,
 } from "mdb-react-ui-kit";
 
+import { client, urlFor } from "../../client";
+import { useEffect, useState } from "react";
+
 const AboutCards = () => {
-  const cards = ["" , "" , "", ""];
+  const [cards, setCards]= useState([]);
+
+
+  useEffect(()=>{
+    const query = '*[_type== "abouts"]';
+
+    client.fetch(query).then((data) => setCards(data));
+  },[])
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
   return (
     <MDBContainer fluid className="bg-dark ">
       <MDBRow>
@@ -26,7 +51,7 @@ const AboutCards = () => {
             className="bg-image hover-overlay"
           >
             <MDBCardImage
-              src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+              src={urlFor(card.aboutimage)}
               fluid
               alt="..."
               className=""
@@ -39,10 +64,9 @@ const AboutCards = () => {
             </a>
           </MDBRipple>
           <MDBCardBody>
-            <MDBCardTitle className="text-white">Card title</MDBCardTitle>
+            <MDBCardTitle className="text-white"> {card.title}</MDBCardTitle>
             <MDBCardText className="text-white">
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
+             {card.description}
             </MDBCardText>
           </MDBCardBody>
         </MDBCard>

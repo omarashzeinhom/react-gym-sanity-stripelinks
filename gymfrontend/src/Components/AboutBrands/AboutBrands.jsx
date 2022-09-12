@@ -53,7 +53,7 @@ export default function AboutBrands() {
                     width="150rem"
                     className="rounded-5 shadow-5-strong"
                   />
-                  <h5>
+                  <h5 className="text-white">
                     <em>{brand.brandtitle}</em>
                   </h5>
                 </SwiperSlide>
@@ -75,4 +75,10 @@ export default function AboutBrands() {
  * //Assets
  * Icons
  * https://iconduck.com/
+ * 
+ * 
+ * //BackEnd Groq
+ * https://www.sanity.io/docs/how-queries-work
+ * https://www.sanity.io/docs/query-cheat-sheet
+ * https://www.sanity.io/docs/groq
  */

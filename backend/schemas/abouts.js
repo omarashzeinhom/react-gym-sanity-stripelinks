@@ -17,8 +17,8 @@ const abouts = {
         },
         {
           //imageURL
-        name: "imgUrl",
-        title: "imgUrl",
+        name: "aboutimg",
+        title: "Card Image",
         type: "image",
         options: {
           //crop hotspot check sanity docs  [Presenting Images](https://www.sanity.io/docs/presenting-images)
