@@ -7,4 +7,7 @@ export {default as NavDots} from './NavDots/NavDots';
 export {default as SocialMedia} from './SocialMedia/SocialMedia';
 export {default as VideoBg} from './VideoBg/VideoBg';
 export {default as CTA} from './CTA/CTA';
+export {default as AboutCards} from './AboutCards/AboutCards';
+export {default as AboutBrands} from './AboutBrands/AboutBrands';
+
 
