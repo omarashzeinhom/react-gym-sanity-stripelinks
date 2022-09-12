@@ -23,7 +23,7 @@ export default function AboutBrands() {
     <>
       <MDBContainer fluid className="py-4 px-2 w-100 ">
         <h5 className="text-white text-center">
-          Br<span className="text-info">ands</span>{" "}
+          Br<span className="text-dark">ands</span>{" "}
         </h5>
         <MDBRow>
           <MDBCol size={12}>
@@ -42,7 +42,7 @@ export default function AboutBrands() {
               }}
               navigation={true}
               modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper py-4 px-2   rounded-1 w-100 shadow-5-strong "
+              className="mySwiper py-4 px-2   rounded-1 w-100 shadow-5-strong bg-info "
             >
               {brands.map((brand, index) => (
                 <SwiperSlide key={index + brand}>
@@ -51,7 +51,7 @@ export default function AboutBrands() {
                     alt="swiperimage"
                     height="150rem"
                     width="150rem"
-                    className="rounded-5 shadow-5-strong"
+                    className="rounded-5 shadow-5-strong bg-primary"
                   />
                   <h5 className="text-white">
                     <em>{brand.brandtitle}</em>
