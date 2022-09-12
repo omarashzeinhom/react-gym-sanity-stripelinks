@@ -22,7 +22,7 @@ const VideoBg = () => {
       rippleColor='light'>
         {videoBg.map((video, index) => (
           
-          <div  className="w-100">
+          <div  key={video + index}className="w-100">
             <video
               playsInline={true}
               controls={false}

@@ -14,7 +14,7 @@ import {
 
 const AboutCards = () => {
   return (
-    <MDBContainer fluid className="bg-dark">
+    <MDBContainer fluid className="bg-dark ">
       <MDBRow>
         <MDBCol lg="4" sm="6" md="6" xl="4">
           <MDBCard className="bg-info shadow-5-strong">
