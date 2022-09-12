@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { client, urlFor } from "../../client";
+//MDB
 import {
   MDBCard,
   MDBCardImage,
@@ -11,54 +13,53 @@ import {
   MDBContainer,
 } from "mdb-react-ui-kit";
 
-import { client, urlFor } from "../../client";
-import { useEffect, useState } from "react";
-
 const AboutCards = () => {
-  const [cards, setCards]= useState([]);
+  const [cards, setCards] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const query = '*[_type== "abouts"]';
     client.fetch(query).then((data) => setCards(data));
-  },[]);
+  }, []);
 
   return (
-    <MDBContainer>
-<MDBRow>
-        {cards.map((card,index)=> 
-        <MDBCol  key={card+index}>
-        <MDBCard className="shadow-5-strong bg-info w-100 h-75" style={{ maxHeight: "50vh" }}  >
-          <MDBRipple
-            rippleColor="light"
-            rippleTag="div"
-            className="bg-image hover-overlay"
-          >
-            <MDBCardImage
-              src={urlFor(card?.aboutimg)}
-              fluid
-              alt="..."
-              className="shadow-5-strong rounded w-100 h-100"
-              style={{ objectFit: "cover", maxHeight: "75rem" }}
-            />
-              <div
-                className="mask"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-              ></div>
-          </MDBRipple>
-          <MDBCardBody>
-            <MDBCardTitle className="text-dark"> {card?.title}</MDBCardTitle>
-            <MDBCardText className="text-dark">
-             {card?.description}
-            </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-  
-        
-        )}
+    <MDBContainer fluid>
+      <MDBRow>
+        {cards.map((card, index) => (
+          <MDBCol key={card + index}>
+            <MDBCard
+              className="shadow-5-strong bg-info w-100 h-75"
+              style={{ maxHeight: "50vh" }}
+            >
+              <MDBRipple
+                rippleColor="light"
+                rippleTag="div"
+                className="bg-image hover-overlay"
+              >
+                <MDBCardImage
+                  src={urlFor(card?.aboutimg)}
+                  fluid
+                  alt="..."
+                  className="shadow-5-strong rounded w-100 h-100"
+                  style={{ objectFit: "cover", maxHeight: "75rem" }}
+                />
+                <div
+                  className="mask"
+                  style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                ></div>
+              </MDBRipple>
+              <MDBCardBody>
+                <MDBCardTitle className="text-white">
+                  <strong>{card?.title}</strong>{" "}
+                </MDBCardTitle>
+                <MDBCardText className="text-dark">
+                  <em>{card?.description}</em>
+                </MDBCardText>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        ))}
       </MDBRow>
     </MDBContainer>
-      
   );
 };
 

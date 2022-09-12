@@ -41,7 +41,7 @@ export default function AboutBrands() {
               }}
               navigation={true}
               modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper py-4 px-2   rounded-1 w-100  bg-info "
+              className="mySwiper py-4 px-2   rounded-1 w-100  bg-dark "
             >
               {brands.map((brand, index) => (
                 <SwiperSlide key={index + brand}>
@@ -51,7 +51,7 @@ export default function AboutBrands() {
                     alt="swiperimage"
                     height="75rem"
                     width="150rem"
-                    className="rounded-5 shadow-5-strong bg-dark"
+                    className="rounded-5 shadow-5-strong bg-info"
                   />
                   <h5 className="text-white">
                     <em>{brand.brandtitle}</em>
