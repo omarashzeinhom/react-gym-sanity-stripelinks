@@ -1,6 +1,11 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+} from "mdb-react-ui-kit";
 
 // Import Swiper styles
 import "swiper/css";
@@ -9,7 +14,6 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import { MDBContainer } from "mdb-react-ui-kit";
 
 export default function AboutBrands() {
   const images = [
@@ -23,12 +27,16 @@ export default function AboutBrands() {
   ];
   return (
     <>
-    <MDBContainer fluid className="py-5 px-2 bg-dark w-100">
-   
-    <Swiper
-      slidesPerView={4}
+    <MDBContainer fluid className="py-4 px-2 w-100 ">
+    <h5 className="text-white text-center">
+        Br<span className="text-info">ands</span>{" "}
+      </h5>
+    <MDBRow>
+      <MDBCol size={12}>
+      <Swiper
+      slidesPerView={3}
       spaceBetween={30}
-      slidesPerGroup={1}
+      slidesPerGroup={3}
       loop={true}
       autoplay={{
         delay: 1500,
@@ -40,17 +48,24 @@ export default function AboutBrands() {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper py-5 px-5 shadow-5-strong  rounded-1 bg-info"
+      className="mySwiper py-4 px-2   rounded-1 w-100 shadow-5-strong "
       >
         {images.map((image, index) => (
           <SwiperSlide key={index + image}>
             <img src={image} alt="swiperimage" height="150rem" width="150rem" className="rounded-5 shadow-5-strong"/>
+            <h5><em>
+            Title
+              </em></h5>
           </SwiperSlide>
         ))}
       </Swiper>
-      <h5 className="text-white text-center">
-        Br<span className="text-info">ands</span>{" "}
-      </h5>
+     
+      </MDBCol>
+   
+
+    </MDBRow>
+
+      
     </MDBContainer>
    
     </>
