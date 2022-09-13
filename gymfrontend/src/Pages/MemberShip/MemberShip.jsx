@@ -1,8 +1,12 @@
 import React from 'react'
+import {MemberShipCards} from '../../Components/index'
 
 const MemberShip = () => {
   return (
-    <div>MemberShip</div>
+    <div>MemberShip
+
+      <MemberShipCards/>
+    </div>
   )
 }
 

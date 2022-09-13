@@ -10,5 +10,7 @@ export {default as CTA} from './CTA/CTA';
 export {default as AboutCards} from './AboutCards/AboutCards';
 export {default as AboutBrands} from './AboutBrands/AboutBrands';
 export {default as AboutMap} from './AboutMap/AboutMap';
+/*MemberShip */
+export {default as CheckOutForm} from './CheckOutForm/CheckOutForm';
 
 
