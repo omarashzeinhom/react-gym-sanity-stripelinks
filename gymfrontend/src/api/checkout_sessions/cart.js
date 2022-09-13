@@ -6,7 +6,7 @@ import { validateCartItems } from "use-shopping-cart/src/serverUtil";
 
 import Stripe from "stripe";
 
-import { client } from "../client";
+import { client } from "../../client";
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {

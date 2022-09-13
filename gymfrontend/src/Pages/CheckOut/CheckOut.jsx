@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { useShoppingCart } from "use-shopping-cart";
 
 import { fetchPostJSON } from "../../Utils/APIHelpers";
 
@@ -28,7 +27,7 @@ export default function CheckOut() {
 
     redirectToCheckout,
 
-  } = useShoppingCart();
+  } = "";
 
   
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {MemberShipCards} from '../../Components/index'
 
-const MemberShip = () => {
+const MemberShip = ({membershipcards}) => {
   return (
     <div>
       <h2 className='text-dark text-center'>
@@ -9,7 +9,9 @@ const MemberShip = () => {
       </h2>
      
 
-      <MemberShipCards/>
+      <MemberShipCards
+      
+      />
     </div>
   )
 }

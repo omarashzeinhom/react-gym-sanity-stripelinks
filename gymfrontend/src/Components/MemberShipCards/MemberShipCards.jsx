@@ -6,7 +6,6 @@ import {
   MDBRipple,
   MDBCardTitle,
   MDBCardBody,
-  MDBCardText,
   MDBCol,
   MDBRow,
   MDBContainer,
@@ -20,16 +19,15 @@ import {
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
 
-
-import {Cart} from '../../Components/index';
-import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
-import {CheckOut} from "../../Pages/index";
-
+import { Cart } from "../../Components/index";
+import { CheckOut } from "../../Pages/index";
 
 const MemberShipCards = () => {
   const [membershipcards, setMemberShipCards] = useState([]);
-  //shopping cart 
-  const { addItem, removeItem } = useShoppingCart();
+  //shopping cart
+  const addProduct = function () {};
+
+  const removeProduct = function () {};
 
   useEffect(() => {
     const query = '*[_type== "membership"]';
@@ -39,9 +37,9 @@ const MemberShipCards = () => {
   return (
     <MDBContainer fluid className="text-center bg-info">
       <MDBRow>
-          <h3 className="text-white">
-            Members<span className="text-warning"> Cards</span>
-          </h3>
+        <h3 className="text-white">
+          Members<span className="text-warning"> Cards</span>
+        </h3>
 
         {membershipcards.map((membershipcard, index) => (
           <MDBCol
@@ -82,48 +80,43 @@ const MemberShipCards = () => {
                 <MDBCardTitle className="text-white rounded-5 py-2 px-1 shadow-5-strong">
                   <strong> {membershipcard.title}</strong>{" "}
                 </MDBCardTitle>
-                <MDBCardText className="shadow-5-strong py-3 rounded-5">
-                  <small className="text-info">Description</small>
-                  <p className="text-white">
-                    <em> {membershipcard?.description.slice(0, 15) + "..."}</em>
-                  </p>
-                </MDBCardText>
-                <MDBCardSubTitle>
-                  <p className="text-success shadow-5-strong rounded-5 bg-light">
-                    <strong>
-                {formatCurrencyString({
-                  value: membershipcard?.price * 100,
-                  currency: "USD",
-                  language: "EN",
-                })}
-                    </strong>
-                  </p>
+                <small className="text-info shadow-5-strong py-3 rounded-5">
+                  Description
+                </small>
+                <p className="text-white">
+                  <em> {membershipcard?.description.slice(0, 15) + "..."}</em>
+                </p>
+
+                <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
+                  <strong>{membershipcard?.price}</strong>
                 </MDBCardSubTitle>
 
                 {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
               </MDBCardFooter>
-              <MDBBtn color="success" className="py-4" onClick={()=> addItem(membershipcard)}>
+              <MDBBtn
+                color="success"
+                className="py-4"
+                onClick={() => addProduct(membershipcard)}
+              >
                 Add to Cart
                 <MDBIcon fas icon="cart-plus" />
-
               </MDBBtn>
-              <MDBBtn color="danger" className="py-4" onClick={()=> removeItem(membershipcard)}>
+              <MDBBtn
+                color="danger"
+                className="py-4"
+                onClick={() => removeProduct(membershipcard)}
+              >
                 Remove From Cart
                 <MDBIcon fas icon="cart-arrow-down" />
               </MDBBtn>
             </MDBCard>
           </MDBCol>
         ))}
-
       </MDBRow>
 
-
-<Cart>
-  <CheckOut/>
-  </Cart>
-
-
-
+      <Cart>
+        <CheckOut />
+      </Cart>
     </MDBContainer>
   );
 };
