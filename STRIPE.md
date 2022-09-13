@@ -79,19 +79,71 @@ REACT_APP_STRIPE_SECRET_KEY=
 
 
 5. Add Packages used in tutorial
+- ADD ```redux``` From []()
 - ADD 
 ```@stripe/react-stripe-js @stripe/stripe-js``` According to [Stripe - React JS Docs ](https://stripe.com/docs/stripe-js/react)
-- ADD ```use-shopping-cart```From[useshoppingcart](https://useshoppingcart.com/)
+- 
 - ADD ```swr ```From[SWR - stale-while-revalidate- React Hooks for Data Fetching](https://swr.vercel.app/)
 -Based on [ HTTP RFC 5861.](https://www.rfc-editor.org/rfc/rfc5861)
 ```
 //for yarn
-yarn add @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
+yarn add @stripe/react-stripe-js @stripe/stripe-js 
 
 //for npm 
-npm install --save @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
+npm install --save @stripe/react-stripe-js @stripe/stripe-js 
 ```
 
+
+
+7. Create in ./src /features
+8. Create new file in ./src/features call it reducer.js
+9. Add The Following Code
+```
+export const initalState = {
+  cart: [],
+  user: null,
+};
+
+//Calculates the total items in the cart
+export const getCartTotal = (cart) => {
+  cart?.reduce((amount, item) => item.price + amount, 0);
+};
+
+const reducer = (state, action) => {
+  //debug action
+  console.log(action);
+  switch (action.type) {
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        cart: [...state.cart, action.item],
+      };
+    case "DELETE_FROM_CART":
+      const index = state.cart.findIndex(
+        (cartItem) => cartItem.id === action.id
+      );
+
+      let newCart = [...state.cart];
+      if (index >= 0) {
+        //CHOP THE ARRAY BY 1
+        newCart.splice(index, 1);
+      } else {
+        console.alert(
+          `Cant Remove Product ${action.id} as its not in the Cart!🛒`
+        );
+      }
+
+      return {
+        ...state,
+        cart: newCart,
+      };
+    default:
+      return state;
+  }
+};
+
+export default reducer;
+```
 
 
 

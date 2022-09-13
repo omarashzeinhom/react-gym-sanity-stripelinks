@@ -20,19 +20,26 @@ import {
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
+import { useStateValue } from "../StateProvider/StateProvider";
+import { Cart , SubTotal} from "../../Components/index";
 
-import { Cart } from "../../Components/index";
-import { CartSubTotal } from "../../Pages/index";
-
-const MemberShipCards = () => {
+export default function MemberShipCards ({ id, title, image, price , rating}){
   const [membershipcards, setMemberShipCards] = useState([]);
-  const [showShow, setShowShow] = useState(false);
-
-  const toggleShow = () => setShowShow(!showShow);
-
+  const [{cart}, dispatch] = useStateValue();
   //shopping cart
-  const addProduct = function () {};
-
+  const addtoCart = ()=> {
+    // dispatch an action into the datalayer 
+    dispatch({
+      type: 'ADD_TO_CART',
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    })
+  }
   const removeProduct = function () {};
 
   useEffect(() => {
@@ -118,7 +125,7 @@ const MemberShipCards = () => {
                 <MDBBtn
                   color="success"
                   className="py-4 w-100"
-                  onClick={() => addProduct(membershipcard)}
+                  onClick={() => addtoCart(membershipcard)}
                 >
                   ADD TO
                   <MDBIcon fas icon="cart-plus" />
@@ -128,12 +135,11 @@ const MemberShipCards = () => {
           </MDBCol>
         ))}
       </MDBRow>
+      <SubTotal />
 
       <Cart>
-        <CartSubTotal />
       </Cart>
     </MDBContainer>
   );
 };
 
-export default MemberShipCards;

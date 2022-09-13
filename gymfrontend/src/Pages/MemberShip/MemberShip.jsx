@@ -9,9 +9,7 @@ const MemberShip = ({membershipcards}) => {
       </h2>
      
 
-      <MemberShipCards
-      
-      />
+      <MemberShipCards/>
     </div>
   )
 }
