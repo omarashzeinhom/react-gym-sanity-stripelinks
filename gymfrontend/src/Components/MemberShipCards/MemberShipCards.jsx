@@ -15,6 +15,7 @@ import {
   MDBCardLink,
   MDBCardSubTitle,
   MDBTooltip,
+  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
@@ -28,7 +29,7 @@ const MemberShipCards = () => {
   const [showShow, setShowShow] = useState(false);
 
   const toggleShow = () => setShowShow(!showShow);
-  
+
   //shopping cart
   const addProduct = function () {};
 
@@ -88,35 +89,41 @@ const MemberShipCards = () => {
                 <small className="text-info shadow-5-strong py-3 rounded-5">
                   Description
                 </small>
-                <MDBTooltip tag='div' wrapperProps={{ href: '#' }} title={membershipcard?.description}>
-                {membershipcard?.description.slice(0, 15) + "..."}
-                  </MDBTooltip>
+                <MDBTooltip
+                  tag="div"
+                  wrapperProps={{ href: "#" }}
+                  title={membershipcard?.description}
+                >
+                  {membershipcard?.description.slice(0, 15) + "..."}
+                </MDBTooltip>
                 <p className="text-white">
                   <em> </em>
                 </p>
 
                 <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
-                  <strong>{membershipcard?.price}</strong>
+                  <strong>{membershipcard?.price + " " + "$"}</strong>
                 </MDBCardSubTitle>
 
                 {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
               </MDBCardFooter>
-              <MDBBtn
-                color="success"
-                className="py-4"
-                onClick={() => addProduct(membershipcard)}
-              >
-                Add to Cart
-                <MDBIcon fas icon="cart-plus" />
-              </MDBBtn>
-              <MDBBtn
-                color="danger"
-                className="py-4"
-                onClick={() => removeProduct(membershipcard)}
-              >
-                Remove From Cart
-                <MDBIcon fas icon="cart-arrow-down" />
-              </MDBBtn>
+              <MDBBtnGroup className="w-100 ">
+                <MDBBtn
+                  color="danger"
+                  className="py-4 shadow-5-strong w-100"
+                  onClick={() => removeProduct(membershipcard)}
+                >
+                  DEL FROM
+                  <MDBIcon fas icon="cart-arrow-down" />
+                </MDBBtn>
+                <MDBBtn
+                  color="success"
+                  className="py-4 w-100"
+                  onClick={() => addProduct(membershipcard)}
+                >
+                  ADD TO
+                  <MDBIcon fas icon="cart-plus" />
+                </MDBBtn>
+              </MDBBtnGroup>
             </MDBCard>
           </MDBCol>
         ))}
