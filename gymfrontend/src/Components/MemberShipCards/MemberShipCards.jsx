@@ -20,7 +20,7 @@ import {
 import { client, urlFor } from "../../../src/client";
 
 import { Cart } from "../../Components/index";
-import { CheckOut } from "../../Pages/index";
+import { CartSubTotal } from "../../Pages/index";
 
 const MemberShipCards = () => {
   const [membershipcards, setMemberShipCards] = useState([]);
@@ -115,7 +115,7 @@ const MemberShipCards = () => {
       </MDBRow>
 
       <Cart>
-        <CheckOut />
+        <CartSubTotal />
       </Cart>
     </MDBContainer>
   );
