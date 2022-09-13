@@ -14,6 +14,7 @@ import {
   MDBIcon,
   MDBCardLink,
   MDBCardSubTitle,
+  MDBTooltip,
 } from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
@@ -24,6 +25,10 @@ import { CartSubTotal } from "../../Pages/index";
 
 const MemberShipCards = () => {
   const [membershipcards, setMemberShipCards] = useState([]);
+  const [showShow, setShowShow] = useState(false);
+
+  const toggleShow = () => setShowShow(!showShow);
+  
   //shopping cart
   const addProduct = function () {};
 
@@ -83,8 +88,11 @@ const MemberShipCards = () => {
                 <small className="text-info shadow-5-strong py-3 rounded-5">
                   Description
                 </small>
+                <MDBTooltip tag='div' wrapperProps={{ href: '#' }} title={membershipcard?.description}>
+                {membershipcard?.description.slice(0, 15) + "..."}
+                  </MDBTooltip>
                 <p className="text-white">
-                  <em> {membershipcard?.description.slice(0, 15) + "..."}</em>
+                  <em> </em>
                 </p>
 
                 <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
