@@ -1,10 +1,15 @@
 import {CartProvider} from "use-shopping-cart";
-import getStripe from "../../../../backend/library/stripe/getStripe";
+import getStripe from '../../getStripe';
+import { MDBContainer } from "mdb-react-ui-kit";
 
 export default function Cart ({children}){
     return (
-        <CartProvider mode="checkout-session" stripe={getStripe()} currency={"usd"}>
+        <MDBContainer fluid>
+            <h1>Cart</h1>
+      <CartProvider mode="checkout-session" stripe={getStripe()} currency={"usd"}>
             {children}
         </CartProvider>
+        </MDBContainer>
+  
     )
 }

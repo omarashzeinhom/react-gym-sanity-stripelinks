@@ -14,16 +14,22 @@ import {
   MDBBtn,
   MDBIcon,
   MDBCardLink,
-  MDBCardGroup,
   MDBCardSubTitle,
-  MDBTypography,
 } from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
 
+
+import {Cart} from '../../Components/index';
+import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
+import {CheckOut} from "../../Pages/index";
+
+
 const MemberShipCards = () => {
   const [membershipcards, setMemberShipCards] = useState([]);
+  //shopping cart 
+  const { addItem, removeItem } = useShoppingCart();
 
   useEffect(() => {
     const query = '*[_type== "membership"]';
@@ -33,11 +39,9 @@ const MemberShipCards = () => {
   return (
     <MDBContainer fluid className="text-center bg-info">
       <MDBRow>
-        <MDBTypography>
           <h3 className="text-white">
             Members<span className="text-warning"> Cards</span>
           </h3>
-        </MDBTypography>
 
         {membershipcards.map((membershipcard, index) => (
           <MDBCol
@@ -65,7 +69,6 @@ const MemberShipCards = () => {
                 <MDBCardImage
                   src={urlFor(membershipcard?.image)}
                   fluid
-                  alt="membershipcardImg"
                   className="shadow-5-strong rounded w-100 h-100"
                   style={{ objectFit: "cover", maxHeight: "175rem" }}
                 />
@@ -87,20 +90,40 @@ const MemberShipCards = () => {
                 </MDBCardText>
                 <MDBCardSubTitle>
                   <p className="text-success shadow-5-strong rounded-5 bg-light">
-                    {membershipcard?.price + "$" + membershipcard?.currency}
+                    <strong>
+                {formatCurrencyString({
+                  value: membershipcard?.price * 100,
+                  currency: "USD",
+                  language: "EN",
+                })}
+                    </strong>
                   </p>
                 </MDBCardSubTitle>
 
                 {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
               </MDBCardFooter>
-              <MDBBtn color="success" className="py-4">
+              <MDBBtn color="success" className="py-4" onClick={()=> addItem(membershipcard)}>
                 Add to Cart
                 <MDBIcon fas icon="cart-plus" />
+
+              </MDBBtn>
+              <MDBBtn color="danger" className="py-4" onClick={()=> removeItem(membershipcard)}>
+                Remove From Cart
+                <MDBIcon fas icon="cart-arrow-down" />
               </MDBBtn>
             </MDBCard>
           </MDBCol>
         ))}
+
       </MDBRow>
+
+
+<Cart>
+  <CheckOut/>
+  </Cart>
+
+
+
     </MDBContainer>
   );
 };

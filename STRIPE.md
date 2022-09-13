@@ -1,14 +1,66 @@
 ## STEPS 
 
 # 1. - BackEnd Sanity and Stripe
+
 1. Create new folders /library/stripe in ./backend directory
 
 
-2. install  [SWR - stale-while-revalidate- React Hooks for Data Fetching](https://swr.vercel.app/)
--Based on [ HTTP RFC 5861.](https://www.rfc-editor.org/rfc/rfc5861)
- ```
- yarn add swr
- ```
+
+
+
+
+
+
+
+
+
+
+## Front End 
+
+1. Create a new file in src/ folder call it getStripe.js 
+   ```
+
+   ```
+   
+2. Create 1 new components Cart.jsx
+   
+3. Wrap App with <CartProvider> Component
+```
+import ReactDOM from 'react-dom'
+import { CartProvider } from 'use-shopping-cart'
+
+import App from './App'
+
+ReactDOM.render(
+  <CartProvider
+    mode="payment"
+    cartMode="client-only"
+    stripe={YOUR_STRIPE_PUBLISHABLE_KEY_HERE}
+    successUrl="stripe.com"
+    cancelUrl="twitter.com/dayhaysoos"
+    currency="USD"
+    allowedCountries={['US', 'GB', 'CA']}
+    billingAddressCollection={true}
+  >
+    <App />
+  </CartProvider>,
+  document.getElementById('root')
+)
+
+//from https://useshoppingcart.com/
+```
+
+4. Create a new folder call it utils/APIHelpers.js
+
+5. Add the Following Code to APIHelpers.js 
+
+```
+
+https://www.sanity.io/guides/building-ecommerce-sites-with-the-stripe-api
+```
+
+4. Create CheckOut Page 
+
 
 4. GET STRIPE API KEYS
 - Signup to [stripe](https://stripe.com/)
@@ -26,12 +78,12 @@ REACT_APP_STRIPE_SECRET_KEY=
 ```
 
 
-1. Add Packages used in tutorial
+5. Add Packages used in tutorial
 - ADD 
 ```@stripe/react-stripe-js @stripe/stripe-js``` According to [Stripe - React JS Docs ](https://stripe.com/docs/stripe-js/react)
 - ADD ```use-shopping-cart```From[useshoppingcart](https://useshoppingcart.com/)
-- ADD ```swr ```From[swr-Vercel](https://swr.vercel.app/)
-
+- ADD ```swr ```From[SWR - stale-while-revalidate- React Hooks for Data Fetching](https://swr.vercel.app/)
+-Based on [ HTTP RFC 5861.](https://www.rfc-editor.org/rfc/rfc5861)
 ```
 //for yarn
 yarn add @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
@@ -39,23 +91,6 @@ yarn add @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
 //for npm 
 npm install --save @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Front End 
-
-1. Create 2 new components Checkout.jsx and 
-
 
 
 
