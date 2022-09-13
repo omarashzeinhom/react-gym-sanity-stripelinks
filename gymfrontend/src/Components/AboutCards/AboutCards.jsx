@@ -11,6 +11,7 @@ import {
   MDBCol,
   MDBRow,
   MDBContainer,
+  MDBCardFooter,
 } from "mdb-react-ui-kit";
 
 const AboutCards = () => {
@@ -33,28 +34,30 @@ const AboutCards = () => {
               <MDBRipple
                 rippleColor="light"
                 rippleTag="div"
-                className="bg-image hover-overlay"
+                className="bg-image hover-overlay "
               >
                 <MDBCardImage
                   src={urlFor(card?.aboutimg)}
                   fluid
                   alt="..."
-                  className="shadow-5-strong rounded w-100 h-100"
-                  style={{ objectFit: "cover", maxHeight: "75rem" }}
+                  className="shadow-5-strong rounded w-100 h-100 "
+                  style={{ objectFit: "cover", maxHeight: "150rem" }}
                 />
                 <div
                   className="mask"
-                  style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                  style={{ backgroundColor: "rgba(0, 0, 0, 0.15)" }}
                 ></div>
               </MDBRipple>
               <MDBCardBody>
                 <MDBCardTitle className="text-white">
                   <strong>{card?.title}</strong>{" "}
                 </MDBCardTitle>
+              </MDBCardBody>
+              <MDBCardFooter>
                 <MDBCardText className="text-dark">
                   <em>{card?.description}</em>
                 </MDBCardText>
-              </MDBCardBody>
+              </MDBCardFooter>
             </MDBCard>
           </MDBCol>
         ))}
