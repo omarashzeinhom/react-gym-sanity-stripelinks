@@ -30,13 +30,14 @@ REACT_APP_STRIPE_SECRET_KEY=
 - ADD 
 ```@stripe/react-stripe-js @stripe/stripe-js``` According to [Stripe - React JS Docs ](https://stripe.com/docs/stripe-js/react)
 - ADD ```use-shopping-cart```From[useshoppingcart](https://useshoppingcart.com/)
+- ADD ```swr ```From[swr-Vercel](https://swr.vercel.app/)
 
 ```
 //for yarn
-yarn add @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart
+yarn add @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
 
 //for npm 
-npm install --save @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart
+npm install --save @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart swr
 ```
 
 
@@ -90,3 +91,4 @@ npm install --save @stripe/react-stripe-js @stripe/stripe-js use-shopping-cart
 3. [Stripe - React JS Docs ](https://stripe.com/docs/stripe-js/react)
 4. [Stripe - Docs - API/Products](https://stripe.com/docs/api/products)
 5. [Model good-better-best on Stripe ](https://stripe.com/docs/products-prices/pricing-models)
+6. [loadStripe from '@stripe/stripe-js'](https://github.com/stripe/stripe-js/blob/master/README.md#loadstripe)

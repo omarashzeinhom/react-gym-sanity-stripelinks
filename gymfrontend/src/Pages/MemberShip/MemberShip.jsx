@@ -3,8 +3,11 @@ import {MemberShipCards} from '../../Components/index'
 
 const MemberShip = () => {
   return (
-    <div>MemberShip
-
+    <div>
+      <h2 className='text-dark'>
+      Member<span className='text-info'>Ship</span>
+      </h2>
+      
       <MemberShipCards/>
     </div>
   )

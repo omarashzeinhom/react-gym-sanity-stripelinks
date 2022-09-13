@@ -1,109 +1,86 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from "react";
+//MDB
+import {
+  MDBCard,
+  MDBCardImage,
+  MDBRipple,
+  MDBCardTitle,
+  MDBCardBody,
+  MDBCardText,
+  MDBCol,
+  MDBRow,
+  MDBContainer,
+  MDBCardFooter,
+  MDBBtn,
+  MDBIcon,
+  MDBCardLink,
+} from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
+import { client, urlFor } from "../../../src/client";
 
-const ProductDisplay = () => (
-  <section>
-    <div className="product">
-      <Logo />
-      <div className="description">
-        <h3>Starter plan</h3>
-        <h5>$20.00 / month</h5>
-      </div>
-    </div>
-    <form action="/create-checkout-session" method="POST">
-      {/* Add a hidden field with the lookup_key of your Price */}
-      <input type="hidden" name="lookup_key" value="subscribtionprice" />
-      <button id="checkout-and-portal-button" type="submit">
-        Checkout
-      </button>
-    </form>
-  </section>
-);
+const MemberShipCards = () => {
+  const [membershipcards, setMemberShipCards] = useState([]);
 
-const SuccessDisplay = ({ sessionId }) => {
+  useEffect(() => {
+    const query = '*[_type== "membership"]';
+    client.fetch(query).then((data) => setMemberShipCards(data));
+  }, []);
+
   return (
-    <section>
-      <div className="product Box-root">
-        <Logo />
-        <div className="description Box-root">
-          <h3>Subscription to starter plan successful!</h3>
-        </div>
-      </div>
-      <form action="/create-portal-session" method="POST">
-        <input
-          type="hidden"
-          id="session-id"
-          name="session_id"
-          value={sessionId}
-        />
-        <button id="checkout-and-portal-button" type="submit">
-          Manage your billing information
-        </button>
-      </form>
-    </section>
+    <MDBContainer fluid className="text-center">
+      <MDBRow>
+        <h5> MemberShipCards</h5>
+        {membershipcards.map((membershipcard, index) => (
+          <MDBCol key={membershipcard + index} size={4}>
+            <a href={membershipcard?.slug}>
+        {/**Takes user to a link with product link */}
+          test
+            </a>
+            
+            <MDBCard
+              className="shadow-5-strong bg-dark w-100 h-75"
+              style={{ maxHeight: "50vh" }}
+            >
+              <MDBRipple
+                rippleColor="light"
+                rippleTag="div"
+                className="bg-image hover-overlay"
+              >
+                <MDBCardImage
+                  src={urlFor(membershipcard?.image)}
+                  fluid
+                  alt="..."
+                  className="shadow-5-strong rounded w-100 h-100"
+                  style={{ objectFit: "cover", maxHeight: "75rem" }}
+                />
+                <div
+                  className="mask"
+                  style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                ></div>
+              </MDBRipple>
+              <MDBCardBody>
+                <MDBCardTitle className="text-white">
+                  <strong> {membershipcard.title}</strong>{" "}
+                </MDBCardTitle>
+                <MDBCardText className="text-dark">
+                  <em> {membershipcard.description}</em>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardFooter>
+                <p className="text-success">{membershipcard?.price + "$" + membershipcard?.currency }</p>
+{/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
+                <MDBBtn color="info" rounded outline className="py-2">
+                  Add to Cart
+                  <MDBIcon icon="cart" />
+                </MDBBtn>
+              </MDBCardFooter>
+            </MDBCard>
+          </MDBCol>
+        ))}
+      </MDBRow>
+    </MDBContainer>
   );
 };
 
-const Message = ({ message }) => (
-  <section>
-    <p>{message}</p>
-  </section>
-);
-
-export default function MemberShipCards() {
-  let [message, setMessage] = useState('');
-  let [success, setSuccess] = useState(false);
-  let [sessionId, setSessionId] = useState('');
-
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-
-    if (query.get('success')) {
-      setSuccess(true);
-      setSessionId(query.get('session_id'));
-    }
-
-    if (query.get('canceled')) {
-      setSuccess(false);
-      setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
-    }
-  }, [sessionId]);
-
-  if (!success && message === '') {
-    return <ProductDisplay />;
-  } else if (success && sessionId !== '') {
-    return <SuccessDisplay sessionId={sessionId} />;
-  } else {
-    return <Message message={message} />;
-  }
-}
-
-const Logo = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="14px"
-    height="16px"
-    viewBox="0 0 14 16"
-    version="1.1"
-  >
-    <defs />
-    <g id="Flow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <g
-        id="0-Default"
-        transform="translate(-121.000000, -40.000000)"
-        fill="#E184DF"
-      >
-        <path
-          d="M127,50 L126,50 C123.238576,50 121,47.7614237 121,45 C121,42.2385763 123.238576,40 126,40 L135,40 L135,56 L133,56 L133,42 L129,42 L129,56 L127,56 L127,50 Z M127,48 L127,42 L126,42 C124.343146,42 123,43.3431458 123,45 C123,46.6568542 124.343146,48 126,48 L127,48 Z"
-          id="Pilcrow"
-        />
-      </g>
-    </g>
-  </svg>
-);
+export default MemberShipCards;

@@ -14,7 +14,6 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    
     home,
     abouts,
     brands,
