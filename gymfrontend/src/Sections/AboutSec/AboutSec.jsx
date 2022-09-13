@@ -1,5 +1,7 @@
 import { MDBContainer } from "mdb-react-ui-kit";
 import { AboutBrands, AboutCards, AboutMap } from "../../Components/index";
+
+
 const AboutSec = () => {
   return (
     <section id="About" className="section  ">

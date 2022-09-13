@@ -65,19 +65,4 @@ export default function AboutBrands() {
   );
 }
 
-/***
- * https://codesandbox.io/s/rhvkt5?file=/src/App.jsx:419-705
- * https://codesandbox.io/s/ud6zx6?file=/src/App.jsx:367-398
- * https://codesandbox.io/s/bkpw8m?file=/src/App.jsx
- * https://swiperjs.com/demos
- *
- * //Assets
- * Icons
- * https://iconduck.com/
- * 
- * 
- * //BackEnd Groq
- * https://www.sanity.io/docs/how-queries-work
- * https://www.sanity.io/docs/query-cheat-sheet
- * https://www.sanity.io/docs/groq
- */
+
