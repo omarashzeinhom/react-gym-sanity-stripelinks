@@ -28,8 +28,8 @@ const AboutCards = () => {
         {cards.map((card, index) => (
           <MDBCol key={card + index}>
             <MDBCard
-              className="shadow-5-strong bg-info w-100 h-75"
-              style={{ maxHeight: "50vh" }}
+              className="shadow-5-strong bg-info w-100 h-100"
+              style={{ maxHeight: "40vh" }}
             >
               <MDBRipple
                 rippleColor="light"

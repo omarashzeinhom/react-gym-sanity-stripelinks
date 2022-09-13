@@ -15,6 +15,8 @@ import {
   MDBIcon,
   MDBCardLink,
   MDBCardGroup,
+  MDBCardSubTitle,
+  MDBTypography,
 } from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
@@ -29,12 +31,13 @@ const MemberShipCards = () => {
   }, []);
 
   return (
-    <MDBContainer fluid className="text-center">
+    <MDBContainer fluid className="text-center bg-info">
       <MDBRow>
-        <h5 className="text-dark">
-          {" "}
-          MemberShip <span className="text-info">Cards</span>
-        </h5>
+        <MDBTypography>
+          <h3 className="text-white">
+            Members<span className="text-warning"> Cards</span>
+          </h3>
+        </MDBTypography>
 
         {membershipcards.map((membershipcard, index) => (
           <MDBCol
@@ -51,7 +54,7 @@ const MemberShipCards = () => {
             </MDBCardLink>
 
             <MDBCard
-              className="shadow-5-strong bg-dark w-100 h-75"
+              className="shadow-5-strong bg-dark w-100 h-100"
               style={{ maxHeight: "50vh" }}
             >
               <MDBRipple
@@ -73,26 +76,27 @@ const MemberShipCards = () => {
                 <MDBCardBody></MDBCardBody>
               </MDBRipple>
               <MDBCardFooter>
-                <MDBCardTitle className="text-warning">
+                <MDBCardTitle className="text-white rounded-5 py-2 px-1 shadow-5-strong">
                   <strong> {membershipcard.title}</strong>{" "}
                 </MDBCardTitle>
-                <MDBCardText>
+                <MDBCardText className="shadow-5-strong py-3 rounded-5">
                   <small className="text-info">Description</small>
                   <p className="text-white">
-                    <em> {membershipcard?.description.slice(0, 10) + "..."}</em>
+                    <em> {membershipcard?.description.slice(0, 15) + "..."}</em>
                   </p>
                 </MDBCardText>
+                <MDBCardSubTitle>
+                  <p className="text-success shadow-5-strong rounded-5 bg-light">
+                    {membershipcard?.price + "$" + membershipcard?.currency}
+                  </p>
+                </MDBCardSubTitle>
 
-                <p className="text-success">
-                  {membershipcard?.price + "$" + membershipcard?.currency}
-                </p>
                 {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
-               
               </MDBCardFooter>
               <MDBBtn color="success" className="py-4">
-                  Add to Cart
-                  <MDBIcon icon="cart" />
-                </MDBBtn>
+                Add to Cart
+                <MDBIcon fas icon="cart-plus" />
+              </MDBBtn>
             </MDBCard>
           </MDBCol>
         ))}
