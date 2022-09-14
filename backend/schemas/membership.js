@@ -41,20 +41,14 @@ const membership = {
       },
     },
     //objects
-
     {
-      name: "currency",
-
-      title: "Currency",
-
-      description: "Keep this 'usd' for the purposes of this tutorial",
-
-      type: "string",
+      name: "stripelink",
+      title: "Stripe Product Payment Link",
+      type: "url",
     },
+ 
   ],
-  initalValue: {
-    currency: "usd",
-  },
+  
 };
 
 export default membership;

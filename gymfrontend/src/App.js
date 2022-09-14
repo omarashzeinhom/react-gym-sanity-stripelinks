@@ -4,9 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, Classes, MemberShip, Contact } from "./Pages/index";
 import {Nav, Footer} from "./Components/index";
 
+
 function App() {
+
   return (
-    <>
+    <>         
+
       <Router>
         <Nav/>
         <Routes>

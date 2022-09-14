@@ -12,6 +12,8 @@ import {
   MDBRow,
   MDBContainer,
   MDBCardFooter,
+  MDBCardLink,
+
 } from "mdb-react-ui-kit";
 
 const AboutCards = () => {

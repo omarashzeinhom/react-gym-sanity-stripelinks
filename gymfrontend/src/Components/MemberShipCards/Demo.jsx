@@ -15,16 +15,19 @@ import {
   MDBCardLink,
   MDBCardSubTitle,
   MDBTooltip,
-  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
 
+
 const MemberShipCards = () => {
   const [membershipcards, setMemberShipCards] = useState([]);
 
+  
   //TODO ADD PRODUCT TO CART IN REACT REDUX WITH GLOBAL PROPS
+  
+
 
   useEffect(() => {
     const query = '*[_type== "membership"]';
@@ -80,41 +83,34 @@ const MemberShipCards = () => {
                 <small className="text-info shadow-5-strong py-3 rounded-5">
                   Description
                 </small>
-                <MDBTooltip
-                  tag="div"
-                  wrapperProps={{ href: "#" }}
-                  title={membershipcard?.description}
-                >
-                  {membershipcard?.description.slice(0, 15) + "..."}
-                </MDBTooltip>
+                <MDBTooltip tag='div' wrapperProps={{ href: '#' }} title={membershipcard?.description}>
+                {membershipcard?.description.slice(0, 15) + "..."}
+                  </MDBTooltip>
                 <p className="text-white">
                   <em> </em>
                 </p>
 
                 <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
-                  <strong>{membershipcard?.price + " " + "$"}</strong>
+                  <strong>{membershipcard?.price}</strong>
                 </MDBCardSubTitle>
 
                 {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
               </MDBCardFooter>
-              <MDBBtnGroup>
-                <MDBBtn
-                  color="success"
-                  className="py-4"
-                  href={membershipcard?.stripelink}
-                  target="_blank"
-                >
-                  Subscribe Now{" "}
-                  <MDBIcon fas icon="shopping-cart" />
-                </MDBBtn>
-                <MDBBtn color="success" className="py-4" href="/Contact">
-                  Contact US For Other MemberShips <MDBIcon fas icon="phone" />
-                </MDBBtn>
-              </MDBBtnGroup>
+              <MDBBtn
+                color="success"
+                className="py-4"
+                href="/Contact"
+              >
+              Contact US
+                <MDBIcon fas icon="phone" />
+              </MDBBtn>
+           
             </MDBCard>
           </MDBCol>
         ))}
       </MDBRow>
+
+    
     </MDBContainer>
   );
 };
