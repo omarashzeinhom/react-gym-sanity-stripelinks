@@ -11,7 +11,5 @@ export {default as AboutBrands} from './AboutBrands/AboutBrands';
 export {default as AboutMap} from './AboutMap/AboutMap';
 /*MemberShip */
 export {default as MemberShipCards} from './MemberShipCards/MemberShipCards';
-export {default as Cart} from './Cart/Cart';
-export {default as SubTotal} from './SubTotal/SubTotal';
-export {default as CheckOutProduct} from './CheckOutProduct/CheckOutProduct';
+
 
