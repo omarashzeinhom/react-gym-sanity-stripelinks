@@ -4,16 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 //
+
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import { StateProvider } from "./Components/StateProvider/StateProvider";
-import reducer, { initalState } from "./features/reducer";
+import { Provider } from 'react-redux';
+import store from '../src/store/store';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <StateProvider initalState={initalState} reducer={reducer}>
+    <Provider store={store} >
       <App />
-    </StateProvider>
+    </Provider>
+   
   </React.StrictMode>
 );
 

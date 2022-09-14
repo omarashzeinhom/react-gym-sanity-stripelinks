@@ -15,17 +15,23 @@ import {
   MDBCardLink,
   MDBCardSubTitle,
   MDBTooltip,
-  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
 import { useStateValue } from "../StateProvider/StateProvider";
 import { Cart , SubTotal} from "../../Components/index";
+import{productAdded}from '../../features/products/productsSlice';
 
 export default function MemberShipCards ({ id, title, image, price , rating}){
   const [membershipcards, setMemberShipCards] = useState([]);
-  const [{cart}, dispatch] = useStateValue();
+  const [{cart}, dispatch] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type== "membership"]';
+    client.fetch(query).then((data) => setMemberShipCards(data));
+  }, []);
+
   //shopping cart
   const addtoCart = ()=> {
     // dispatch an action into the datalayer 
@@ -33,20 +39,14 @@ export default function MemberShipCards ({ id, title, image, price , rating}){
       type: 'ADD_TO_CART',
       item: {
         id: id,
-        title: title,
-        image: image,
+        title:title,
+        image:image,
         price: price,
-        rating: rating,
       },
     })
   }
-  const removeProduct = function () {};
 
-  useEffect(() => {
-    const query = '*[_type== "membership"]';
-    client.fetch(query).then((data) => setMemberShipCards(data));
-  }, []);
-
+  
   return (
     <MDBContainer fluid className="text-center bg-info">
       <MDBRow>
@@ -55,6 +55,7 @@ export default function MemberShipCards ({ id, title, image, price , rating}){
         </h3>
 
         {membershipcards.map((membershipcard, index) => (
+          
           <MDBCol
             key={membershipcard + index}
             xs="12"
@@ -63,7 +64,7 @@ export default function MemberShipCards ({ id, title, image, price , rating}){
             lg="3"
             xl="3"
           >
-            <MDBCardLink href={membershipcard?.slug} className="link-info">
+            <MDBCardLink href={membershipcard?.slug} className="link-dark">
               {/**Takes user to a link with product link */}
               SLUG
             </MDBCardLink>
@@ -113,15 +114,8 @@ export default function MemberShipCards ({ id, title, image, price , rating}){
 
                 {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
               </MDBCardFooter>
-              <MDBBtnGroup className="w-100 ">
-                <MDBBtn
-                  color="danger"
-                  className="py-4 shadow-5-strong w-100"
-                  onClick={() => removeProduct(membershipcard)}
-                >
-                  DEL FROM
-                  <MDBIcon fas icon="cart-arrow-down" />
-                </MDBBtn>
+            
+                
                 <MDBBtn
                   color="success"
                   className="py-4 w-100"
@@ -130,7 +124,7 @@ export default function MemberShipCards ({ id, title, image, price , rating}){
                   ADD TO
                   <MDBIcon fas icon="cart-plus" />
                 </MDBBtn>
-              </MDBBtnGroup>
+              
             </MDBCard>
           </MDBCol>
         ))}

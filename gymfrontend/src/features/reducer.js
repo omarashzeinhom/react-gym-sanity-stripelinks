@@ -1,6 +1,6 @@
 export const initalState = {
   cart: [],
-  user: null,
+  //user: null,
 };
 
 //Calculates the total items in the cart
