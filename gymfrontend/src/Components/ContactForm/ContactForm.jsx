@@ -1,13 +1,24 @@
-import React from "react";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBInput,
-  MDBInputGroup,
-  MDBTextArea,
-} from "mdb-react-ui-kit";
-
+import React, { useRef } from 'react';
+import { MDBBtn, MDBContainer, MDBInput, MDBTextArea } from "mdb-react-ui-kit";
+import emailjs from '@emailjs/browser';
 const ContactForm = () => {
+
+const formaction = useRef();
+
+
+const sendEmailInfo = async function (e){
+  e.preventDefault();
+  emailjs.sendForm('', '', formaction.current, '').then((result)=>{
+    console.log(result.text);
+  },(error)=>{
+    console.log(error.text);
+  });
+};
+
+
+
+
+
   return (
     <MDBContainer className="text-center  rounded-5 shadow-strong">
       <h1 className="text-info">
@@ -32,13 +43,14 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      <form className="py-5" action="">
+
+      <form className="py-5" action="" ref={formaction} onSubmit={sendEmailInfo}>
         <label className="text-dark">Name</label>
-        <MDBInput className="text" placeholder="Name" />
+        <MDBInput className="text" placeholder="Name" name="user_name" />
         <label className="text-dark">Email</label>
-        <MDBInput className="text" placeholder="Email" />
+        <MDBInput className="text" placeholder="Email" name="user_email"/>
         <label className="text-dark">Message</label>
-        <MDBTextArea className="text" style={{ resize: "none" }}></MDBTextArea>
+        <MDBTextArea name="message" className="text" style={{ resize: "none" }}></MDBTextArea>
         <hr className="py-1" />
         <MDBBtn
           className="py-3"
@@ -55,3 +67,10 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
+
+/***
+ * https://www.emailjs.com/docs/sdk/send/
+ * https://mdbootstrap.com/docs/react/extended/jumbotron/
+ * https://www.emailjs.com/docs/examples/reactjs/
+ */
