@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//MDB
 import {
   MDBCard,
   MDBCardImage,
@@ -48,7 +47,6 @@ const MemberShipCards = () => {
             xl="3"
           >
             <MDBCardLink href={membershipcard?.slug} className="link-info">
-              {/**Takes user to a link with product link */}
               SLUG
             </MDBCardLink>
 
@@ -84,7 +82,8 @@ const MemberShipCards = () => {
                   tag="div"
                   wrapperProps={{ href: "#" }}
                   title={membershipcard?.description}
-                >
+                    
+               >
                   {membershipcard?.description.slice(0, 15) + "..."}
                 </MDBTooltip>
                 <p className="text-white">
@@ -92,10 +91,9 @@ const MemberShipCards = () => {
                 </p>
 
                 <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
-                  <strong>{membershipcard?.price + " " + "$"}</strong>
+                 {/**FIXED ERRORS 02*/}
+                  <strong>{membershipcard?.price + "\n $"}</strong>
                 </MDBCardSubTitle>
-
-                {/**TODO: ADD PRODUCT TO CART use-shopping-cart */}
               </MDBCardFooter>
               <MDBBtnGroup>
                 <MDBBtn
@@ -104,11 +102,10 @@ const MemberShipCards = () => {
                   href={membershipcard?.stripelink}
                   target="_blank"
                 >
-                  Subscribe Now{" "}
-                  <MDBIcon fas icon="shopping-cart" />
+                  Subscribe Now💳<MDBIcon fas icon="shopping-cart" />
                 </MDBBtn>
-                <MDBBtn color="success" className="py-4" href="/Contact">
-                  Contact US For Other MemberShips <MDBIcon fas icon="phone" />
+                <MDBBtn color="primary" className="py-4" href="/Contact">
+                  Conact US📱
                 </MDBBtn>
               </MDBBtnGroup>
             </MDBCard>

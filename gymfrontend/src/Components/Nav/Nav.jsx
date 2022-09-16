@@ -4,7 +4,6 @@ import {
   MDBNavbar,
   MDBNavbarNav,
   MDBNavbarToggler,
-  MDBIcon,
   MDBNavbarItem,
   MDBNavbarLink,
   MDBCollapse,
@@ -14,8 +13,8 @@ import {
 
 const Nav = () => {
   const [showNav, setShowNav] = useState(false);
-
-  const navLinks = ["#Home", "#About", "Contact", "MemberShip", "Classes"];
+/**FIXED ERROR NO3 THE HREF LINK TO AVOID USERS GOING OUT OF PAGE */
+  const navLinks = ["/#Home", "/#About", "Contact", "MemberShip", "Classes"];
 
   return (
     <MDBNavbar expand="lg" dark bgColor="dark">
@@ -25,14 +24,10 @@ const Nav = () => {
           className="mx-2 shadow-5-strong text-info"
           color="info"
         >
-          JIMS GYM
+          OZ GYM
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={() => setShowNav(!showNav)}>
-          <MDBIcon
-            fas
-            icon="dumbbell"
-            className="link-info mx-2 shadow-5-strong"
-          />
+        💪
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNav}>
           <MDBNavbarNav>
@@ -42,7 +37,7 @@ const Nav = () => {
                   href={link}
                   className="text-info mx-2 shadow-3-strong"
                 >
-                  {link.replace("#", " ")}
+                  {link.replace("/#", " ")}
                 </MDBNavbarLink>
               </MDBNavbarItem>
             ))}

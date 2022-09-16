@@ -12,7 +12,6 @@ import {
   MDBRow,
   MDBContainer,
   MDBCardFooter,
-  MDBCardLink,
 
 } from "mdb-react-ui-kit";
 
@@ -28,6 +27,7 @@ const AboutCards = () => {
     <MDBContainer fluid>
       <MDBRow>
         {cards.map((card, index) => (
+          //FIXED ERROR NO1 REMOVE THE FRAGMENT CAUSES ERROR & NOTNEEDED <> </>
           <MDBCol key={card + index}>
             <MDBCard
               className="shadow-5-strong bg-info w-100 h-100"
