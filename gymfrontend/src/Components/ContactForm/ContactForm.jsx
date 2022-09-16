@@ -8,7 +8,8 @@ const formaction = useRef();
 
 const sendEmailInfo = async function (e){
   e.preventDefault();
-  emailjs.sendForm('', '', formaction.current, '').then((result)=>{
+  //YOUR_SERVICE_ID 'YOUR_TEMPLATE_ID formaction.current YOUR_PUBLIC_KEY
+  emailjs.sendForm('d60948f3cbd0575446e0c843', 'd60948f3cbd0575446e0c843', formaction.current, 'eBDZZXRhSJXYwkH1x').then((result)=>{
     console.log(result.text);
   },(error)=>{
     console.log(error.text);
