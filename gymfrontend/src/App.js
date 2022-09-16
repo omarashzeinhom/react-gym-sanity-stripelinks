@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Home, Classes, MemberShip, Contact } from "./Pages/index";
-import {Nav, Footer} from "./Components/index";
+import {Nav, Footer, SocialMedia} from "./Components/index";
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
           <Route path="/membership" element={<MemberShip/>} />
           <Route path="/contact" element={<Contact/>} />
         </Routes>
+        <SocialMedia/>
         <Footer/>
       </Router>
     </>

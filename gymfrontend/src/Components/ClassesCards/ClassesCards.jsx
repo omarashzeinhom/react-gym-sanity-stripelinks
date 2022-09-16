@@ -34,7 +34,7 @@ const ClassesCards = () => {
     <MDBContainer fluid className="text-center bg-info">
       <MDBRow>
         <h3 className="text-white">
-          Members<span className="text-warning"> Cards</span>
+          Classes<span className="text-warning">Available</span>
         </h3>
 
         {classescards.map((classcard, index) => (

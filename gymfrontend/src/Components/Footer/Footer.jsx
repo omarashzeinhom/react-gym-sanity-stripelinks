@@ -9,15 +9,17 @@ import {
 
 const Footer = () => {
   return (
-    <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
+    <MDBFooter
+      bgColor="dark"
+      className="text-center text-lg-start text-muted py-5"
+    >
       <MDBContainer className="text-center text-md-start mt-5">
         <MDBRow className="mt-3">
           <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
             <h6 className="text-uppercase fw-bold mb-4">
               <MDBIcon icon="gem" className="me-3" />
-              OZ GYM  💪
+              OZ GYM 💪
             </h6>
-            <p></p>
           </MDBCol>
 
           <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
@@ -25,7 +27,7 @@ const Footer = () => {
               MemberShip Cards
             </h6>
             {memberships.map((membership, index) => (
-              <p>
+              <p key={membership + index}>
                 <a href={membership?.stripelink} className="text-reset">
                   {membership?.title}
                 </a>
@@ -34,9 +36,11 @@ const Footer = () => {
           </MDBCol>
 
           <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
-            <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
+            <h6 className="text-uppercase text-info fw-bold mb-4">
+              Useful links
+            </h6>
             {pages.map((page, index) => (
-              <p>
+              <p key={page + index}>
                 <a href={page?.link} className="text-reset">
                   {page?.title}
                 </a>

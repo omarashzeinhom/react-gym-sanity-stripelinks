@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import {ClassesCards} from '../../Components/index';
+import { MDBContainer } from 'mdb-react-ui-kit';
 
 const Classes = () => {
   return (
-    <div>Classes</div>
+   <MDBContainer fluid>
+    <h1 className="text-dark">Cla<span className="text-info">sses</span></h1>
+<ClassesCards/>
+   </MDBContainer>
   )
 }
 
