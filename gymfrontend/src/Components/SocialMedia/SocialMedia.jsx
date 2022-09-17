@@ -1,5 +1,4 @@
 import React from "react";
-import "./SocialMedia.scss";
 import { MDBIcon } from "mdb-react-ui-kit";
 
 const SocialMedia = () => {
