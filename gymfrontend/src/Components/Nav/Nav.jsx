@@ -37,7 +37,7 @@ const Nav = () => {
                   href={link}
                   className="text-info mx-2 shadow-3-strong"
                 >
-                  {link.replace("/#", " ")}
+                  {"https://ozgym.netlify.app" + link.replace("/#", " ")}
                 </MDBNavbarLink>
               </MDBNavbarItem>
             ))}

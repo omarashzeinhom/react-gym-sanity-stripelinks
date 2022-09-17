@@ -13,10 +13,10 @@ function App() {
       <Router>
         <Nav/>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/classes" element={<Classes/>} />
-          <Route path="/membership" element={<MemberShip/>} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="https://ozgym.netlify.app/" element={<Home/>} />
+          <Route path="https://ozgym.netlify.app/Classes" element={<Classes/>} />
+          <Route path="https://ozgym.netlify.app/Membership" element={<MemberShip/>} />
+          <Route path="https://ozgym.netlify.app/Contact" element={<Contact/>} />
         </Routes>
         <SocialMedia/>
         <Footer/>
