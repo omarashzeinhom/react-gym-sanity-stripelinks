@@ -3,8 +3,8 @@ import React from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { Home, Classes, MemberShip, Contact } from "./Pages/index";
-import { Nav, Footer, SocialMedia } from "./Components/index";
+import { Home, Classes, MemberShip, Contact } from "./pages/index";
+import { Nav, Footer, SocialMedia } from "./components/index";
 
 function App() {
   return (
