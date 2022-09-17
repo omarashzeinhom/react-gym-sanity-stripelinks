@@ -1,5 +1,5 @@
 import { MDBContainer } from "mdb-react-ui-kit";
-import { AboutBrands, AboutCards, AboutMap } from "../../Components/index";
+import { AboutBrands, AboutCards, AboutMap } from "../../components/index";
 
 const AboutSec = () => {
   return (

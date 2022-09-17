@@ -1,5 +1,5 @@
 import React from 'react'
-import {ContactForm} from '../../Components/index';
+import {ContactForm} from '../../components/index';
 import { MDBContainer } from 'mdb-react-ui-kit';
 
 const Contact = () => {

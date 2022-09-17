@@ -1,5 +1,5 @@
 import React from "react";
-import { ClassesCards } from "../../Components/index";
+import { ClassesCards } from "../../components/index";
 import { MDBContainer } from "mdb-react-ui-kit";
 
 const Classes = () => {

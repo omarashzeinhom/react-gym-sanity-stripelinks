@@ -12,10 +12,10 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path="/" index element={<Home />} />
-          <Route path="/classes" element={<Classes />} />
-          <Route path="/membership" element={<MemberShip />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" index element={<Home />} component={<Home/>}/>
+          <Route exact path="/classes" element={<Classes />} />
+          <Route exact path="/membership" element={<MemberShip />} />
+          <Route exact path="/contact" element={<Contact />} />
         </Routes>
         <SocialMedia />
         <Footer />

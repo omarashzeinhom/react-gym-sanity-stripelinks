@@ -1,6 +1,6 @@
 import { MDBContainer } from "mdb-react-ui-kit";
 import React from "react";
-import { MemberShipCards } from "../../Components/index";
+import { MemberShipCards } from "../../components/index";
 
 const MemberShip = () => {
   return (

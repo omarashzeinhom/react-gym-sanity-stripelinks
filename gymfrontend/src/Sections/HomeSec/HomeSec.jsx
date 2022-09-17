@@ -1,5 +1,5 @@
 import React from "react";
-import { CTA, VideoBg } from "../../Components/index";
+import { CTA, VideoBg } from "../../components/index";
 
 const HomeSec = () => {
   return (

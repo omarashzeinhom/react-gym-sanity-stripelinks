@@ -2,7 +2,7 @@
   "name": "gymfrontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ozgymdemo.netlify.app",
+  "homepage": "https://andgoedu-ozgym.netlify.app",
   "dependencies": {
     "@emailjs/browser": "^3.7.0",
     "@sanity/client": "^3.4.1",
