@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./VideoBg.scss";
 
 import { client } from "../../client";
+import { Link } from "react-router-dom";
 
 const VideoBg = () => {
   const [videoBg, setVideoBg] = useState([]);
@@ -39,9 +40,9 @@ const VideoBg = () => {
             <div className='text-white'>
               <h1 className='mb-3'>{video?.title}</h1>
               <h4 className='mb-3'>{video?.description}</h4>
-              <a className='btn btn-outline-info btn-lg' href='MemberShip' role='button'>
+              <Link className='btn btn-outline-info btn-lg' to='/memberShip' role='button'>
                 MemberShip
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -53,4 +53,6 @@
  * https://www.sanity.io/docs/file-type
  * https://www.sanity.io/docs/js-client
 
+
+https://webpack.js.org/concepts/entry-points/#multi-page-application
 */

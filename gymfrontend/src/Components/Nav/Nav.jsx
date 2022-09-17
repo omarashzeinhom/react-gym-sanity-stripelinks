@@ -5,10 +5,10 @@ import {
   MDBNavbarNav,
   MDBNavbarToggler,
   MDBNavbarItem,
-  MDBNavbarLink,
   MDBCollapse,
   MDBNavbarBrand,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [showNav, setShowNav] = useState(false);
@@ -17,12 +17,11 @@ const Nav = () => {
   return (
     <MDBNavbar expand="lg" dark bgColor="dark">
       <MDBContainer fluid>
-        <MDBNavbarBrand
-          href="/"
-          className="mx-2 shadow-5-strong text-info"
-          color="info"
-        >
-          OZ GYM
+        <MDBNavbarBrand href="/" color="info">
+          <Link to="/" className="mx-2 shadow-5-strong text-info">
+            {" "}
+            OZ GYM
+          </Link>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={() => setShowNav(!showNav)}>
           💪
@@ -31,12 +30,9 @@ const Nav = () => {
           <MDBNavbarNav>
             {navLinks.map((link, index) => (
               <MDBNavbarItem key={link + index}>
-                <MDBNavbarLink
-                  href={link}
-                  className="text-info mx-2 shadow-3-strong"
-                >
-                  {link.replace("/", " ").replace("#", "").toLocaleUpperCase()}
-                </MDBNavbarLink>
+                <Link to={link} className="text-info mx-2 shadow-3-strong">
+                  {link?.replace("/", " ").replace("#", "").toLocaleUpperCase()}
+                </Link>
               </MDBNavbarItem>
             ))}
           </MDBNavbarNav>
