@@ -1,33 +1,36 @@
-import React, { useRef } from 'react';
-import { MDBBtn, MDBContainer,  MDBInput,  MDBTextArea } from "mdb-react-ui-kit";
-import emailjs from '@emailjs/browser';
+import React, { useRef } from "react";
+import { MDBBtn, MDBContainer, MDBInput, MDBTextArea } from "mdb-react-ui-kit";
+import emailjs from "@emailjs/browser";
 const ContactForm = () => {
+  const formaction = useRef();
 
-const formaction = useRef();
-
-
-const sendEmailInfo = async function (e){
-  e.preventDefault();
-  //YOUR_SERVICE_ID 'YOUR_TEMPLATE_ID formaction.current YOUR_PUBLIC_KEY
-  emailjs.sendForm('service_ztohx4a', 'template_a7rdrz5', formaction.current, 'eBDZZXRhSJXYwkH1x').then((result)=>{
-    console.log(result.text);
-    if(result.text=== "OK"){
-      alert(
-        result.text+ "Your message was sent to OZGym We Will Reply in 24Hours"
+  const sendEmailInfo = async function (e) {
+    e.preventDefault();
+    //YOUR_SERVICE_ID 'YOUR_TEMPLATE_ID formaction.current YOUR_PUBLIC_KEY
+    emailjs
+      .sendForm(
+        "service_ztohx4a",
+        "template_a7rdrz5",
+        formaction.current,
+        "eBDZZXRhSJXYwkH1x"
       )
-    }else {
-      alert(
-         "Your message was not sent to OZGym Please Try Again"
-      )
-    }
-  },(error)=>{
-    console.log(error.text);
-  });
-};
-
-
-
-
+      .then(
+        (result) => {
+          console.log(result.text);
+          if (result.text === "OK") {
+            alert(
+              result.text +
+                "Your message was sent to OZGym We Will Reply in 24Hours"
+            );
+          } else {
+            alert("Your message was not sent to OZGym Please Try Again");
+          }
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
     <MDBContainer className="text-center  rounded-5 shadow-strong">
@@ -54,13 +57,36 @@ const sendEmailInfo = async function (e){
         </div>
       </div>
 
-      <form className="py-5" action="" ref={formaction} onSubmit={sendEmailInfo} encType="e">
+      <form
+        className="py-5"
+        action=""
+        ref={formaction}
+        onSubmit={sendEmailInfo}
+        encType="e"
+      >
         <label className="text-dark">Name</label>
-        <MDBInput name="from_name" className="text" placeholder="Name" type="text" required />
+        <MDBInput
+          name="from_name"
+          className="text"
+          placeholder="Name"
+          type="text"
+          required
+        />
         <label className="text-dark">Email</label>
-        <MDBInput name="from_email" className="text" placeholder="Email"  type="email" required />
+        <MDBInput
+          name="from_email"
+          className="text"
+          placeholder="Email"
+          type="email"
+          required
+        />
         <label className="text-dark">Message</label>
-        <MDBTextArea name="message" className="text" required  style={{ resize: "none" }}></MDBTextArea>
+        <MDBTextArea
+          name="message"
+          className="text"
+          required
+          style={{ resize: "none" }}
+        ></MDBTextArea>
         <hr className="py-1" />
         <MDBBtn
           className="py-3"
@@ -77,7 +103,6 @@ const sendEmailInfo = async function (e){
 };
 
 export default ContactForm;
-
 
 /***
  * https://www.emailjs.com/docs/sdk/send/
