@@ -3,7 +3,7 @@ import { CTA, VideoBg } from "../../Components/index";
 
 const HomeSec = () => {
   return (
-    <section id="Home">
+    <section id="home">
       <VideoBg />
       <CTA />
     </section>

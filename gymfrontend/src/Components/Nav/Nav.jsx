@@ -8,14 +8,12 @@ import {
   MDBNavbarLink,
   MDBCollapse,
   MDBNavbarBrand,
-
 } from "mdb-react-ui-kit";
 
 const Nav = () => {
   const [showNav, setShowNav] = useState(false);
-/**FIXED ERROR NO3 THE HREF LINK TO AVOID USERS GOING OUT OF PAGE */
-  const navLinks = ["/#Home", "/#About", "Contact", "MemberShip", "Classes"];
-
+  /**FIXED ERROR NO3 THE HREF LINK TO AVOID USERS GOING OUT OF PAGE */
+  const navLinks = ["/#home", "/#about", "/contact", "/membership", "/classes"];
   return (
     <MDBNavbar expand="lg" dark bgColor="dark">
       <MDBContainer fluid>
@@ -27,7 +25,7 @@ const Nav = () => {
           OZ GYM
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={() => setShowNav(!showNav)}>
-        💪
+          💪
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNav}>
           <MDBNavbarNav>
@@ -37,16 +35,14 @@ const Nav = () => {
                   href={link}
                   className="text-info mx-2 shadow-3-strong"
                 >
-                  {link.replace("/#", " ")}
+                  {link.replace("/", " ").replace("#", "").toLocaleUpperCase()}
                 </MDBNavbarLink>
               </MDBNavbarItem>
             ))}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
-      
     </MDBNavbar>
-    
   );
 };
 

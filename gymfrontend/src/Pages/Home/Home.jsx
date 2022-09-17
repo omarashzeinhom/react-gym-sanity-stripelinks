@@ -1,13 +1,13 @@
-import React from 'react';
-import { HomeSec,AboutSec } from '../../Sections/index';
+import React from "react";
+import { HomeSec, AboutSec } from "../../Sections/index";
 
 const Home = () => {
   return (
     <>
-    <HomeSec/>
-   <AboutSec/>
+      <HomeSec />
+      <AboutSec />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -82,8 +82,7 @@ const MemberShipCards = () => {
                   tag="div"
                   wrapperProps={{ href: "#" }}
                   title={membershipcard?.description}
-                    
-               >
+                >
                   {membershipcard?.description.slice(0, 15) + "..."}
                 </MDBTooltip>
                 <p className="text-white">
@@ -91,7 +90,7 @@ const MemberShipCards = () => {
                 </p>
 
                 <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
-                 {/**FIXED ERRORS 02*/}
+                  {/**FIXED ERRORS 02*/}
                   <strong>{membershipcard?.price + "\n $"}</strong>
                 </MDBCardSubTitle>
               </MDBCardFooter>
@@ -102,7 +101,8 @@ const MemberShipCards = () => {
                   href={membershipcard?.stripelink}
                   target="_blank"
                 >
-                  Subscribe Now💳<MDBIcon fas icon="shopping-cart" />
+                  Subscribe Now💳
+                  <MDBIcon fas icon="shopping-cart" />
                 </MDBBtn>
                 <MDBBtn color="primary" className="py-4" href="/Contact">
                   Conact US📱

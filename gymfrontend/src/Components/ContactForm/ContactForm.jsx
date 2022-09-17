@@ -34,15 +34,16 @@ const ContactForm = () => {
 
   return (
     <MDBContainer className="text-center  rounded-5 shadow-strong">
-      <h1 className="text-info">
-        Contact <span className="text-dark">Us!</span>
-      </h1>
+     
       <div
         className="p-2 text-center bg-image rounded-5 shadow-5-strong"
         style={{
           backgroundImage:
             "url('https://res.cloudinary.com/du9aympvd/image/upload/v1663303530/code/js/gym%20fullstack%20company%20portfolio/ContactForm/undraw_contact_us_re_4qqt_1_eyyrd0.svg')",
-          height: 370,
+         //FIX NO5
+            height: "100%",
+          minHeight: 200,
+          maxHeight: 370,
           objectFit: "cover",
         }}
         loading="lazy"

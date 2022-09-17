@@ -1,25 +1,24 @@
 import "./App.css";
+import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Home, Classes, MemberShip, Contact } from "./Pages/index";
-import {Nav, Footer, SocialMedia} from "./Components/index";
-
+import { Nav, Footer, SocialMedia } from "./Components/index";
 
 function App() {
-
   return (
-    <>         
-
+    <>
       <Router>
-        <Nav/>
+        <Nav />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/classes" element={<Classes/>} />
-          <Route path="/membership" element={<MemberShip/>} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="/" index element={<Home />} />
+          <Route path="/classes" element={<Classes />} />
+          <Route path="/membership" element={<MemberShip />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-        <SocialMedia/>
-        <Footer/>
+        <SocialMedia />
+        <Footer />
       </Router>
     </>
   );
