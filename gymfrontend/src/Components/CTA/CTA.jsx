@@ -7,6 +7,7 @@ import {
   MDBCol,
 } from "mdb-react-ui-kit";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   const mouseSVG =
@@ -23,14 +24,13 @@ const CTA = () => {
             <MDBRow>
               <MDBCol size="4">
                 <MDBBtn
-                  href="/Contact"
                   outline
                   rounded
                   color="info"
                   className="mx-2 w-75 "
                 >
-                  {" "}
-                  Contact
+                  <Link to="/contact" className="text-info">  Contact</Link>
+                
                 </MDBBtn>
               </MDBCol>
               <MDBCol size="4">
@@ -51,13 +51,15 @@ const CTA = () => {
               </MDBCol>
               <MDBCol size="4">
                 <MDBBtn
-                  href="/MemberShip"
                   outline
                   rounded
                   color="light"
                   className="mx-2 w-75"
                 >
-                  Join US
+                   <Link to="/memberShip" className="text-info">
+                   Join US
+
+                   </Link>
                 </MDBBtn>
               </MDBCol>
             </MDBRow>

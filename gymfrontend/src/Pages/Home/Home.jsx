@@ -1,11 +1,10 @@
 import React from "react";
-import { HomeSec, AboutSec } from "../../sections/index";
+import { HomeSec} from "../../sections/index";
 
 const Home = () => {
   return (
     <>
       <HomeSec />
-      <AboutSec />
     </>
   );
 };

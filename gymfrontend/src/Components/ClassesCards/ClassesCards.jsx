@@ -19,6 +19,7 @@ import {
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
+import {Link} from 'react-router-dom';
 
 const ClassesCards = () => {
   const [classescards, setClassesCards] = useState([]);
@@ -84,7 +85,7 @@ const ClassesCards = () => {
 
                 <MDBCardSubTitle className="text-success shadow-5-strong rounded-5 bg-light">
                   {/**FIXED ERRORS 02*/}
-                  <strong>{classcard?.price + "\n $"}</strong>
+                  <strong>{classcard?.price +  "\n $"}</strong>
                 </MDBCardSubTitle>
               </MDBCardFooter>
               <MDBBtnGroup>
@@ -98,7 +99,9 @@ const ClassesCards = () => {
                   <MDBIcon fas icon="shopping-cart" />
                 </MDBBtn>
                 <MDBBtn color="primary" className="py-4" href="/Contact">
-                  Conact US📱
+                <Link to="/Contact" className="btn btn-primary rounded py-4"> 
+                 Conact US📱
+                 </Link>
                 </MDBBtn>
               </MDBBtnGroup>
             </MDBCard>

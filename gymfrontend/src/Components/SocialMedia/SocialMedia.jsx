@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBIcon } from "mdb-react-ui-kit";
+import {Link} from "react-router-dom";
 
 const SocialMedia = () => {
   return (
@@ -10,14 +11,14 @@ const SocialMedia = () => {
 
       <div>
         {socialMedia.map((social, index) => (
-          <a key={social + index}
+          <Link key={social + index}
             href={social?.link}
             className="me-4 text-reset"
             target="_blank"
             rel="noreferrer"
           >
             <MDBIcon fab icon={social?.icon} />
-          </a>
+          </Link>
         ))}
       </div>
     </div>

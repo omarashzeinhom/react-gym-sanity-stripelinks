@@ -20,6 +20,8 @@ import {
 // See your keys here: https://dashboard.stripe.com/apikeys
 import { client, urlFor } from "../../../src/client";
 
+import {Link} from 'react-router-dom';
+
 const MemberShipCards = () => {
   const [membershipcards, setMemberShipCards] = useState([]);
 
@@ -104,9 +106,10 @@ const MemberShipCards = () => {
                   Subscribe Now💳
                   <MDBIcon fas icon="shopping-cart" />
                 </MDBBtn>
-                <MDBBtn color="primary" className="py-4" href="/Contact">
-                  Conact US📱
-                </MDBBtn>
+                 <Link to="/Contact" className="btn btn-primary rounded py-4"> 
+                 Conact US📱
+                 </Link>
+                
               </MDBBtnGroup>
             </MDBCard>
           </MDBCol>

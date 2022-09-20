@@ -12,14 +12,12 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [showNav, setShowNav] = useState(false);
-  /**FIXED ERROR NO3 THE HREF LINK TO AVOID USERS GOING OUT OF PAGE */
-  const navLinks = ["/#home", "/#about", "/contact", "/membership", "/classes"];
+  const navLinks = [ "/about", "/contact", "/membership", "/classes"];
   return (
     <MDBNavbar expand="lg" dark bgColor="dark">
       <MDBContainer fluid>
         <MDBNavbarBrand href="/" color="info">
           <Link to="/" className="mx-2 shadow-5-strong text-info">
-            {" "}
             OZ GYM
           </Link>
         </MDBNavbarBrand>
@@ -31,7 +29,7 @@ const Nav = () => {
             {navLinks.map((link, index) => (
               <MDBNavbarItem key={link + index}>
                 <Link to={link} className="text-info mx-2 shadow-3-strong">
-                  {link?.replace("/", " ").replace("#", "").toLocaleUpperCase()}
+                  {link?.replace("/", " ").toLocaleUpperCase()}
                 </Link>
               </MDBNavbarItem>
             ))}
