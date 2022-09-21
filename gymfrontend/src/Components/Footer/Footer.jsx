@@ -18,7 +18,7 @@ const Footer = () => {
         <MDBRow className="mt-3">
           <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
             <h6 className="text-uppercase fw-bold mb-4">
-              <MDBIcon icon="gem" className="me-3" />
+              <MDBIcon icon="dumbbell" className="me-3 text-info" />
               OZ GYM 💪
             </h6>
           </MDBCol>
@@ -29,7 +29,7 @@ const Footer = () => {
             </h6>
             {memberships.map((membership, index) => (
               <p key={membership + index}>
-                <Link to={membership?.stripelink} className="text-reset">
+                <Link to={membership?.stripelink} className="text-reset" target={"_blank"}>
                   {membership?.title}
                 </Link>
               </p>
@@ -41,8 +41,8 @@ const Footer = () => {
               Useful links
             </h6>
             {pages.map((page, index) => (
-              <p key={page + index}>
-                <Link to={page?.link} className="text-reset">
+              <p >
+                <Link to={page?.link} className="text-reset" target={"_blank"}>
                   {page?.title}
                 </Link>
               </p>

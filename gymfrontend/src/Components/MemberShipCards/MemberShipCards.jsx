@@ -114,7 +114,15 @@ const MemberShipCards = () => {
             </MDBCard>
           </MDBCol>
         ))}
+
+  
       </MDBRow>
+      <small className="text-white text-xs ">
+        <span className="text-dark">
+        Note: Demo Credit Card 4242 4242 4242 4242 
+        </span>
+      DATE: 04/24 - CVC:424
+    </small>
     </MDBContainer>
   );
 };

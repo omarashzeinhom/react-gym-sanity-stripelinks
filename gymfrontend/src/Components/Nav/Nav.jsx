@@ -7,6 +7,7 @@ import {
   MDBNavbarItem,
   MDBCollapse,
   MDBNavbarBrand,
+  MDBIcon,
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
@@ -18,11 +19,12 @@ const Nav = () => {
       <MDBContainer fluid>
         <MDBNavbarBrand href="/" color="info">
           <Link to="/" className="mx-2 shadow-5-strong text-info">
-            OZ GYM
+            OZ GYM      💪
           </Link>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={() => setShowNav(!showNav)}>
-          💪
+        <MDBIcon icon="dumbbell" className="me-3 text-info" />
+   
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNav}>
           <MDBNavbarNav>
