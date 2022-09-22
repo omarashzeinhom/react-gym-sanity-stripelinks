@@ -6,7 +6,7 @@ import {
   MDBCol,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -29,7 +29,13 @@ const Footer = () => {
             </h6>
             {memberships.map((membership, index) => (
               <p key={membership + index}>
-                <a href={membership?.stripelink} className="text-reset" target="_blank" alt="test" rel="noreferrer">
+                <a
+                  href={membership?.stripelink}
+                  className="text-reset"
+                  target="_blank"
+                  alt="test"
+                  rel="noreferrer"
+                >
                   {membership?.title}
                 </a>
               </p>
@@ -41,8 +47,8 @@ const Footer = () => {
               Useful links
             </h6>
             {pages.map((page, index) => (
-              <p key ={page+index}>
-                <Link to={page?.link} className="text-reset" >
+              <p key={page + index}>
+                <Link to={page?.link} className="text-reset">
                   {page?.title}
                 </Link>
               </p>
