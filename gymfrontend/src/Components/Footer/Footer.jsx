@@ -29,9 +29,9 @@ const Footer = () => {
             </h6>
             {memberships.map((membership, index) => (
               <p key={membership + index}>
-                <Link to={membership?.stripelink} className="text-reset" target={"_blank"}>
+                <a href={membership?.stripelink} className="text-reset" target="_blank" alt="test" rel="noreferrer">
                   {membership?.title}
-                </Link>
+                </a>
               </p>
             ))}
           </MDBCol>
@@ -41,8 +41,8 @@ const Footer = () => {
               Useful links
             </h6>
             {pages.map((page, index) => (
-              <p >
-                <Link to={page?.link} className="text-reset" target={"_blank"}>
+              <p key ={page+index}>
+                <Link to={page?.link} className="text-reset" >
                   {page?.title}
                 </Link>
               </p>
@@ -106,22 +106,22 @@ const memberships = [
 const pages = [
   {
     title: "Home",
-    link: "/#Home",
+    link: "/",
   },
   {
     title: "About",
-    link: "/About",
+    link: "/about",
   },
   {
     title: "Contact",
-    link: "/Contact",
+    link: "/contact",
   },
   {
     title: "MemberShip",
-    link: "/MemberShip",
+    link: "/memberShip",
   },
   {
     title: "Classes",
-    link: "/Classes",
+    link: "/classes",
   },
 ];
