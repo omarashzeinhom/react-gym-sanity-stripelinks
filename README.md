@@ -1,5 +1,25 @@
 ## Gym Full Stack Company Portfolio
 
+- UPDATE API Keys in `.env` file in ./frontend folder
+```
+REACT_APP_SANITY_TOKEN=
+REACT_APP_SANITY_PROJECT_ID=i4k5q5mf
+REACT_APP_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+REACT_APP_STRIPE_SECRET_KEY=
+```
+
+
+### Start by
+``` cd ./frontend ```
+``` yarn install ```
+``` yarn start ```
+
+Open a new terminal for backend
+```
+cd ./backend ```
+```yarn install```
+```yarn start ```
+
 
  * REFERENCES
 
