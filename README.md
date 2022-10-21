@@ -1,17 +1,10 @@
 ## Gym Full Stack Company Portfolio
 
-/**
- *  * 1. Create New Component Called CTA
- * 2. Add Components To Home Section
- * 3. Add HomeSection To HomePage
- * 4. Add New BackEnd Schema for home.js
- * 5. index.js to organize backend files
- *
 
  * REFERENCES
- * /**
+
  * JavaScript References 
- * 
+ 
  * hooks-state-ReactJS - Docs From 
  * https://reactjs.org/docs/hooks-state.html
  * hooks-useEffect()-ReactJS - Docs From 
@@ -20,14 +13,9 @@
  * https://reactjs.org/docs/hooks-reference.html
  * Components and Props -ReactJS - Docs From 
  * https://reactjs.org/docs/components-and-props.html
- * 
  * https://blog.logrocket.com/solve-react-useeffect-hook-infinite-loop-patterns/
- * 
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
- * 
- * 
- * 
- * 
+
  * FRONTEND
  * https://mdbootstrap.com/snippets/standard/mdbootstrap/2515523
  * https://mdbootstrap.com/docs/react/utilities/ratio/
@@ -48,4 +36,3 @@
  * https://www.sanity.io/docs/schema-types
  * https://www.freecodecamp.org/news/how-to-deploy-react-router-based-app-to-netlify/
 */
-// TESTTTTT
