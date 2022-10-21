@@ -15,8 +15,7 @@ REACT_APP_STRIPE_SECRET_KEY=
 ``` yarn start ```
 
 Open a new terminal for backend
-```
-cd ./backend ```
+```cd ./backend ```
 ```yarn install```
 ```yarn start ```
 
